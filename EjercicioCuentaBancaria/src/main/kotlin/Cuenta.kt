@@ -1,8 +1,13 @@
 class Cuenta(var numeroCuenta: String, saldo: Double, var propietario: Persona) {
+    /*
+    Hacemos que el saldo no pueda ser negativo a la hora de crear el objeto cuenta
+     */
     init {
         require(saldo >= 0) { "El saldo no puede ser negativo" }
     }
-
+    /*
+    metodo getter y setter de saldo en el que hacemos que al cambiarle su valor no pueda nunca ser negativo
+     */
     var saldo: Double = saldo
         get() {
             return field
@@ -12,9 +17,14 @@ class Cuenta(var numeroCuenta: String, saldo: Double, var propietario: Persona) 
             println("Estableciendo saldo a $value")
             field = value
         }
-    //constructor vacio
+    /*
+    constructor vacio
+     */
     constructor() : this("", 0.0, Persona("", "", ""))
-
+    /*
+    funcion para hacer transaccion de dinero, ya sea ingresar o hacer un reintegro, usando de nuevo el require
+    para que el saldo nunca pueda ser menor a 0
+     */
     fun transaccion(cantidad: Double, tipoTransaccion: String) {
         when (tipoTransaccion.toLowerCase()) {
             "reintegro" -> {
@@ -29,7 +39,9 @@ class Cuenta(var numeroCuenta: String, saldo: Double, var propietario: Persona) 
             else -> println("Tipo de transacción no válido")
         }
     }
-
+    /*
+    sobrecarga del toString
+     */
     override fun toString(): String {
         return "Cuenta(numeroCuenta='$numeroCuenta', propietario=$propietario, saldo=$saldo)"
     }
