@@ -16,3 +16,7 @@ public class Main {
         hiloC.join();
     }
 }
+/*
+Al ejecutarlo me doy cuenta que se ejecutan en orden los hilos en un principio
+pero llega un momento que terminan de forma totalmente aleatoria.
+ */
