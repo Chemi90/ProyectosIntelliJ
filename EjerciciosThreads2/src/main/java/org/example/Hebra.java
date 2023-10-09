@@ -10,7 +10,7 @@ public class Hebra implements Runnable{
 
     @Override
     public void run() {
-        for (int i = 1; i<=10000000;i++){
+        for (int i = 1; i<=1000000;i++){
             v.incrementar();
             System.out.println(v.getV());
         }
