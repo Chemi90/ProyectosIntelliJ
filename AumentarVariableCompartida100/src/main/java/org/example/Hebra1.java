@@ -11,13 +11,15 @@ public class Hebra1 implements Runnable{
     @Override
     public void run() {
         for (int i = 0; i<=99;i++){
-            v.setV(i);
-            System.out.println("Valor de v: " + v.getV());
-            try {
-                // Simula un proceso que toma tiempo
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            synchronized (v) {
+                v.notify();
+                v.setV(i);
+                System.out.println("Valor de v: " + v.getV());
+                try {
+                    v.wait();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

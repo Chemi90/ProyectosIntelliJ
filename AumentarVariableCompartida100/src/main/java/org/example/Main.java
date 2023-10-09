@@ -17,7 +17,6 @@ public class Main {
     }
 }
 /*
-El hilo que solo hace Get, pinta lo que le va apeteciendo, con el sleep
-no llega a igualarse, pero esta muy cerca de mostrar por pantalla lo que
-incrementa.
+El hilo que solo hace Get, pinta lo que le va apeteciendo, con notify y
+wait llega a igualarse y muestra por pantalla lo que incrementa.
  */
