@@ -15,6 +15,11 @@ public class CSVParser {
             String linea;
             while ((linea = br.readLine()) != null) {
                 String[] datosCliente = linea.split(",");
+                if (datosCliente.length < 5) {
+                    System.out.print("Faltan datos en la fila: " + linea);
+                    System.out.println();
+                    continue;
+                }
                 Cliente cliente = new Cliente();
                 cliente.setCodigoCliente(datosCliente[0]);
                 cliente.setNombreEmpresa(datosCliente[1]);
