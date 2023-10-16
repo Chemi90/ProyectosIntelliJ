@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="ui.Ventana">
+  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <component id="3b8de" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+        <constraints/>
+        <properties>
+          <columns value="10"/>
+          <editable value="true"/>
+        </properties>
+      </component>
+      <component id="3977a" class="javax.swing.JButton" binding="boton">
+        <constraints/>
+        <properties>
+          <text value="Mi primer boton de Swing"/>
+        </properties>
+      </component>
+      <component id="93267" class="javax.swing.JLabel" binding="label">
+        <constraints/>
+        <properties>
+          <text value="Otro label mas"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>

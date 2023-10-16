@@ -3,6 +3,7 @@ package org.example.ui;
 import org.example.domain.*;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
 import javax.swing.table.DefaultTableModel;
 import java.awt.image.DataBufferByte;
 import java.beans.PropertyChangeEvent;
@@ -16,6 +17,8 @@ public class Ventana extends JFrame{
 
     DefaultTableModel data;
 
+
+    ArrayList<Tarea> tareas = new ArrayList<>();
     public Ventana(){
         this.setContentPane(panel1);
         setSize(600,400);
@@ -37,15 +40,16 @@ public class Ventana extends JFrame{
         //table1.doLayout();
 
         var dao = new TareaDAOImp(DBConnection.getConnection());
-        var tareas = dao.loadAllByResponsable(1L);
+        tareas = dao.loadAllByResponsable(1L);
         fillTable(tareas);
-        table1.addPropertyChangeListener(evt -> {
-            String id = (String) table1.getValueAt(table1.getSelectedRow(),1);
-            Tarea t= dao.load(Long.valueOf(id));
-            if(t!=null){
-                JOptionPane.showMessageDialog(null,t);
-            }
-        });
+        table1.getSelectionModel().addListSelectionListener(ev-> showDetails(ev));
+    }
+
+    private void showDetails(ListSelectionEvent ev) {
+        if(!ev.getValueIsAdjusting()){
+            Tarea selected = tareas.get(table1.getSelectedRow());
+            info.setText(selected.toString());
+        }
     }
 
     private void fillTable(ArrayList<Tarea> tareas) {
