@@ -1,13 +1,13 @@
 package org.example.ui;
 
 import org.example.domain.*;
+import org.example.domain.tarea.Tarea;
+import org.example.domain.tarea.TareaAdapter;
+import org.example.domain.tarea.TareaDAOImp;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.table.DefaultTableModel;
-import java.awt.image.DataBufferByte;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 
 public class Ventana extends JFrame{
@@ -40,7 +40,7 @@ public class Ventana extends JFrame{
         //table1.doLayout();
 
         var dao = new TareaDAOImp(DBConnection.getConnection());
-        tareas = dao.loadAllByResponsable(1L);
+        tareas = dao.loadAll();
         fillTable(tareas);
         table1.getSelectionModel().addListSelectionListener(ev-> showDetails(ev));
     }

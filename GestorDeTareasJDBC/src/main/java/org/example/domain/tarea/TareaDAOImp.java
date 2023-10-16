@@ -1,4 +1,6 @@
-package org.example.domain;
+package org.example.domain.tarea;
+
+import org.example.domain.usuario.UsuarioDAOImp;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -25,7 +27,15 @@ public class TareaDAOImp implements TareaDAO {
             pst.setLong(1,id);
             var rs = pst.executeQuery();
             if(rs.next()){
-                salida = (new TareaAdapter().loadFromResulset(rs));
+                salida = new Tarea();
+                salida.setId(rs.getLong("id"));
+                salida.setTitulo(rs.getString("titulo"));
+                salida.setPrioridad(rs.getString("prioridad"));
+                salida.setCategoria(rs.getString("categoria"));
+                salida.setDescripcion(rs.getString("descripcion"));
+                salida.setUsuario_id(rs.getLong("usuario_id"));
+
+                salida.setUsuario((new UsuarioDAOImp(connection)).load(salida.getUsuario_id()));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -41,7 +51,9 @@ public class TareaDAOImp implements TareaDAO {
             ResultSet rs = st.executeQuery(queryLoadAll);
 
             while (rs.next()) {
-                salida.add(new TareaAdapter().loadFromResulset(rs));
+                Tarea t = (new TareaAdapter().loadFromResulset(rs));
+                t.setUsuario((new UsuarioDAOImp(connection)).load(t.getUsuario_id()));
+                salida.add(t);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

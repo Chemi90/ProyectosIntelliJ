@@ -1,4 +1,4 @@
-package org.example.domain;
+package org.example.domain.tarea;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

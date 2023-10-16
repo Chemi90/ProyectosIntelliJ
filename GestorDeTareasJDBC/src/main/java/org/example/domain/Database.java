@@ -1,7 +1,13 @@
 package org.example.domain;
 
+import lombok.Data;
+import org.example.domain.tarea.Tarea;
+import org.example.domain.tarea.TareaAdapter;
+
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.logging.Logger;
 
 public class Database {
@@ -71,5 +77,14 @@ public class Database {
                 rs.getString("descripcion")
         };
         return fila;
+    }
+
+    @Data
+    public static class Usuario {
+        private Long id;
+        private String nombre;
+        private String email;
+
+        private Set<Tarea> tareas = new HashSet<>(0);
     }
 }
