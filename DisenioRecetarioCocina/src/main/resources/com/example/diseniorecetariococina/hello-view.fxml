@@ -40,7 +40,7 @@
    <center>
       <SplitPane dividerPositions="0.35968379446640314" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <items>
-            <VBox maxWidth="300.0" prefHeight="322.0" prefWidth="242.0" spacing="10.0">
+            <VBox maxWidth="300.0" onMouseReleased="#actualizarDuracion" prefHeight="322.0" prefWidth="242.0" spacing="10.0">
                <children>
                   <Label fx:id="txtNuevaReceta" text="Nueva Receta">
                      <font>
@@ -52,14 +52,14 @@
                   <FlowPane hgap="20.0">
                      <children>
                         <Label text="Duracion" />
-                        <Label text="Label">
+                        <Label fx:id="lblDuracion" text="Label">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
                      </children>
                   </FlowPane>
-                  <Slider fx:id="sliderDuracion" max="180.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" />
+                  <Slider fx:id="sliderDuracion" max="180.0" minorTickCount="5" onMouseDragged="#actualizarDuracion" onMouseReleased="#actualizarDuracion" showTickLabels="true" showTickMarks="true" />
                   <Label text="Dificultad" />
                   <ComboBox fx:id="comboDificultad" prefWidth="150.0" />
                   <Label text="Tipo de Receta" />
