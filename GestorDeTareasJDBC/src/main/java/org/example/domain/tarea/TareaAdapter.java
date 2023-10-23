@@ -7,7 +7,8 @@ public class TareaAdapter {
 
     private Tarea tarea = new Tarea();
 
-    public TareaAdapter(){}
+    public TareaAdapter() {
+    }
 
     public TareaAdapter(Tarea t) {
         this.tarea = t;
@@ -36,7 +37,7 @@ public class TareaAdapter {
                 String.valueOf(tarea.getId()),
                 tarea.getTitulo(),
                 tarea.getPrioridad(),
-                String.valueOf(tarea.getUsuario_id()),
+                (tarea.getUsuario() != null) ? tarea.getUsuario().getNombre() : ".",
                 tarea.getCategoria(),
                 tarea.getDescripcion()};
     }

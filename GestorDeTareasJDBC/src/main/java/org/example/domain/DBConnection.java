@@ -12,13 +12,7 @@ import java.util.logging.Logger;
 public class DBConnection {
 
     private static final Connection connection;
-
-    public static Connection getConnection() {
-        return connection;
-    }
-
     private static Logger logger;
-
 
     static {
         logger = Logger.getLogger(Database.class.getName());
@@ -45,5 +39,9 @@ public class DBConnection {
             throw new RuntimeException(e);
         }
 
+    }
+
+    public static Connection getConnection() {
+        return connection;
     }
 }

@@ -5,6 +5,10 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -17,74 +21,93 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="652.0" prefWidth="781.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.diseniorecetariococina.VentanaPrincipalController">
-   <bottom>
-      <Label fx:id="info" text="Creado por Jose Miguel Ruiz para 2DAM" BorderPane.alignment="CENTER" />
-   </bottom>
-   <top>
-      <VBox alignment="CENTER" maxWidth="300.0" prefHeight="166.0" prefWidth="781.0" BorderPane.alignment="CENTER">
-         <children>
-            <ImageView fitHeight="98.0" fitWidth="119.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../../../../../Users/JOSE%20MIGUEL/Downloads/libro%20recetas.png" />
-               </image>
-            </ImageView>
-            <Label text="Recetario de Cocina">
-               <font>
-                  <Font name="System Bold" size="27.0" />
-               </font>
-            </Label>
-         </children>
-      </VBox>
-   </top>
+
+<BorderPane xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.diseniorecetariococina.VentanaPrincipalController">
    <center>
-      <SplitPane dividerPositions="0.35968379446640314" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-        <items>
-            <VBox maxWidth="300.0" onMouseReleased="#actualizarDuracion" prefHeight="322.0" prefWidth="242.0" spacing="10.0">
+      <BorderPane prefHeight="752.0" prefWidth="828.0" styleClass="ventana" stylesheets="@style.css">
+         <bottom>
+            <Label fx:id="info" text="Creado por Jose Miguel Ruiz para 2DAM" BorderPane.alignment="CENTER" />
+         </bottom>
+         <top>
+            <VBox alignment="CENTER" maxWidth="300.0" prefHeight="166.0" prefWidth="781.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label fx:id="txtNuevaReceta" text="Nueva Receta">
+                  <ImageView fitHeight="98.0" fitWidth="119.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../../../../Users/JOSE%20MIGUEL/Downloads/libro%20recetas.png" />
+                     </image>
+                  </ImageView>
+                  <Label id="titulo" stylesheets="@style.css" text="Recetario de Cocina">
                      <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="27.0" />
                      </font>
                   </Label>
-                  <Label text="Nombre Receta" />
-                  <TextField promptText="Introduce un nombre descriptivo" />
-                  <FlowPane hgap="20.0">
+                  <ComboBox fx:id="comboRecetas" onAction="#mostrarRecetas" prefWidth="150.0" />
+               </children>
+            </VBox>
+         </top>
+         <center>
+            <SplitPane dividerPositions="0.35968379446640314" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+              <items>
+                  <VBox maxWidth="300.0" onMouseReleased="#actualizarDuracion" prefHeight="322.0" prefWidth="242.0" spacing="10.0">
                      <children>
-                        <Label text="Duracion" />
-                        <Label fx:id="lblDuracion" text="Label">
+                        <Label fx:id="txtNuevaReceta" text="Nueva Receta">
                            <font>
-                              <Font name="System Bold" size="12.0" />
+                              <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
+                        <Label text="Nombre Receta" />
+                        <TextField fx:id="txtNombre" promptText="Introduce un nombre descriptivo" />
+                        <FlowPane hgap="20.0">
+                           <children>
+                              <Label text="Duracion" />
+                              <Label fx:id="lblDuracion" text="Label">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </FlowPane>
+                        <Slider fx:id="sliderDuracion" max="180.0" minorTickCount="5" onMouseDragged="#actualizarDuracion" onMouseReleased="#actualizarDuracion" showTickLabels="true" showTickMarks="true" />
+                        <Label text="Dificultad" />
+                        <ComboBox fx:id="comboDificultad" prefWidth="150.0" />
+                        <Label text="Tipo de Receta" />
+                        <ListView fx:id="listTipo" prefHeight="200.0" prefWidth="200.0" />
+                        <Button fx:id="btnAñadir" mnemonicParsing="false" onAction="#insertarReceta" text="Añadir a la tabla" />
                      </children>
-                  </FlowPane>
-                  <Slider fx:id="sliderDuracion" max="180.0" minorTickCount="5" onMouseDragged="#actualizarDuracion" onMouseReleased="#actualizarDuracion" showTickLabels="true" showTickMarks="true" />
-                  <Label text="Dificultad" />
-                  <ComboBox fx:id="comboDificultad" prefWidth="150.0" />
-                  <Label text="Tipo de Receta" />
-                  <ListView fx:id="listTipo" prefHeight="200.0" prefWidth="200.0" />
-                  <Button fx:id="btnAñadir" mnemonicParsing="false" onAction="#insertarReceta" text="Añadir a la tabla" />
-               </children>
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
-            </VBox>
-            <TableView id="tabla" fx:id="tabla" prefHeight="200.0" prefWidth="200.0">
-              <columns>
-                <TableColumn fx:id="cNombre" prefWidth="75.0" text="Receta" />
-                <TableColumn fx:id="cDuracion" prefWidth="75.0" text="Duracion" />
-                  <TableColumn fx:id="cDificultad" prefWidth="75.0" text="Dificultad" />
-                  <TableColumn fx:id="cTipo" prefWidth="75.0" text="Tipo" />
-              </columns>
-               <columnResizePolicy>
-                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-               </columnResizePolicy>
-            </TableView>
-        </items>
-      </SplitPane>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+                  <TableView id="tabla" fx:id="tabla" prefHeight="200.0" prefWidth="200.0" stylesheets="@style.css">
+                    <columns>
+                      <TableColumn fx:id="cNombre" prefWidth="75.0" text="Receta" />
+                      <TableColumn fx:id="cDuracion" prefWidth="75.0" text="Duracion" />
+                        <TableColumn fx:id="cDificultad" prefWidth="75.0" text="Dificultad" />
+                        <TableColumn fx:id="cTipo" prefWidth="75.0" text="Tipo" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+              </items>
+            </SplitPane>
+         </center>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </BorderPane>
    </center>
-   <padding>
-      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-   </padding>
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Archivo">
+            <items>
+              <MenuItem fx:id="menuSalir" mnemonicParsing="false" onAction="#salir" text="Salir" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="menuAcercaDe" mnemonicParsing="false" onAction="#mostrarAcercaDe" text="Acerca de" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
 </BorderPane>

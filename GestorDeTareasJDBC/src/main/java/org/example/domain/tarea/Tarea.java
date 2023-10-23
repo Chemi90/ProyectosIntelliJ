@@ -1,7 +1,7 @@
 package org.example.domain.tarea;
 
 import lombok.Data;
-import org.example.domain.Database;
+import org.example.domain.usuario.Usuario;
 
 import java.io.Serializable;
 
@@ -13,7 +13,8 @@ public class Tarea implements Serializable {
     private Long usuario_id;
     /* 1 Tarea pertenece a un usuario */
     /* Un usuario puede tener varias Tareas */
-    private Database.Usuario usuario;
+
+    private Usuario usuario;
     private String categoria;
     private String descripcion;
 }
