@@ -7,6 +7,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import lombok.Getter;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -23,9 +24,10 @@ public class VentanaLogin implements Initializable {
     @FXML
     private Button bntCancel;
 
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    private VentanaPrincipal ventanaPrincipal;
+
+    public void setVentanaPrincipal(VentanaPrincipal ventanaPrincipal) {
+        this.ventanaPrincipal = ventanaPrincipal;
     }
 
     @FXML
@@ -35,8 +37,7 @@ public class VentanaLogin implements Initializable {
         String contraseñaIngresada = tfPass.getText();
 
         if (ConsultasDB.verificarCredenciales(usuarioIngresado, contraseñaIngresada)) {
-            // Inicio de sesión exitoso, abre la ventana principal
-            HelloApplication.loadFXML("ventanaPrincipal.fxml");
+                HelloApplication.loadFXML("ventanaPrincipal.fxml", 1200, 800);
         } else {
             // Muestra un mensaje de error en una ventana emergente
             Alert alert = new Alert(Alert.AlertType.ERROR);
