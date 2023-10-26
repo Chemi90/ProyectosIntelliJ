@@ -33,6 +33,71 @@ public class ConsultasDB {
         return usuarioLogeado;
     }
 
+    public static Integer getUsuarioIdLogeado() {
+        try {
+            String consulta = "SELECT id FROM usuarios WHERE nombre = ?";
+            PreparedStatement stmt = connection.prepareStatement(consulta);
+            stmt.setString(1, getUsuarioLogeado());
+
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                return rs.getInt("id");
+            } else {
+                return null;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public boolean insertarPedido(String codigoPedido, Date fechaPedido, Integer usuario, double totalCompra, List<Carrito> itemsCarrito) {
+        if (connection == null || itemsCarrito == null || itemsCarrito.isEmpty()) {
+            return false;
+        }
+
+        try {
+            // Establecer autocommit en falso
+            connection.setAutoCommit(false);
+
+            // Insertar el pedido en la tabla "Pedidos"
+            String sqlPedido = "INSERT INTO Pedidos (código, fecha, usuario, total) VALUES (?, ?, ?, ?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlPedido);
+            preparedStatement.setString(1, codigoPedido);
+            preparedStatement.setDate(2, fechaPedido);
+            preparedStatement.setInt(3, usuario);
+            preparedStatement.setDouble(4, totalCompra);
+
+            int rowsAffected = preparedStatement.executeUpdate();
+
+            if (rowsAffected > 0) {
+                // Éxito: confirmar la transacción
+                connection.commit();
+
+                // Puedes agregar aquí el código para limpiar el carrito
+                itemsCarrito.clear();
+                return true;
+            } else {
+                // Error al insertar el pedido
+                connection.rollback();
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            try {
+                // Restablecer autocommit a verdadero
+                connection.setAutoCommit(true);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+
     public List<String> getProductNames() {
         List<String> productNames = new ArrayList<>();
 

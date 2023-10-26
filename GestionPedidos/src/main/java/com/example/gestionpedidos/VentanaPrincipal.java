@@ -1,13 +1,20 @@
 package com.example.gestionpedidos;
 
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -16,8 +23,6 @@ public class VentanaPrincipal implements Initializable {
     private Label lbLogo;
     @javafx.fxml.FXML
     private TableView tbPedidos;
-    @javafx.fxml.FXML
-    private TableColumn cId;
     @javafx.fxml.FXML
     private TableColumn cCodigo;
     @javafx.fxml.FXML
@@ -42,6 +47,14 @@ public class VentanaPrincipal implements Initializable {
     private MenuItem mbLogout;
     @javafx.fxml.FXML
     private ComboBox cbCantidad;
+    @FXML
+    private TableColumn cNombre;
+    @FXML
+    private TableColumn cCantidadCarrito;
+    @FXML
+    private TableColumn cPrecioTotal;
+    @FXML
+    private MenuItem mbClose;
 
 
     @Override
@@ -106,16 +119,115 @@ public class VentanaPrincipal implements Initializable {
         // Agregar el elemento al TableView tbCarrito
         tbCarrito.getItems().add(carritoItem);
 
-        // Llena las columnas de la tabla tbCarrito
-        TableColumn<Carrito, String> cNombre = new TableColumn<>("Nombre");
-        TableColumn<Carrito, Integer> cCantidadCarrito = new TableColumn<>("Cantidad");
-        TableColumn<Carrito, Double> cPrecioTotal = new TableColumn<>("Precio Total");
+        // Llena las columnas de la tabla tbCarrito (si no se han llenado previamente)
+        if (cNombre.getCellData(0) == null) {
+            cNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+            cCantidadCarrito.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
+            cPrecioTotal.setCellValueFactory(new PropertyValueFactory<>("precioTotal"));
+            tbCarrito.getColumns().setAll(cNombre, cCantidadCarrito, cPrecioTotal);
+        }
+    }
 
-        cNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        cCantidadCarrito.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
-        cPrecioTotal.setCellValueFactory(new PropertyValueFactory<>("precioTotal"));
+    @FXML
+    protected void onComprarClick(ActionEvent event) {
+        // Obtener los elementos del carrito actual
+        ObservableList<Carrito> itemsCarrito = tbCarrito.getItems();
 
-        tbCarrito.getColumns().addAll(cNombre, cCantidadCarrito, cPrecioTotal);
+        if (itemsCarrito.isEmpty()) {
+            // No se puede realizar la compra sin elementos en el carrito
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error en la compra");
+            alert.setHeaderText("Carrito vacío");
+            alert.setContentText("Agrega productos al carrito antes de realizar la compra.");
+            alert.showAndWait();
+            return;
+        }
+
+        ConsultasDB db = new ConsultasDB();
+
+        // Calcular el total de la compra
+        double totalCompra = 0;
+        for (Carrito item : itemsCarrito) {
+            totalCompra += item.getPrecioTotal();
+        }
+
+        // Crear un nuevo pedido
+        String codigoPedido = generateUniqueCode(); // Debes implementar una función para generar un código único
+        // Obtener la fecha actual
+        long tiempoActual = System.currentTimeMillis();
+        java.sql.Date fechaPedido = new java.sql.Date(tiempoActual);
+        Integer usuario = ConsultasDB.getUsuarioIdLogeado(); // Obtener el usuario de la sesión
+
+        // Insertar el pedido en la base de datos
+        if (db.insertarPedido(codigoPedido, fechaPedido, usuario, totalCompra, itemsCarrito)) {
+            // Éxito: limpiar el carrito
+            itemsCarrito.clear();
+            // Actualizar la tabla del carrito
+            tbCarrito.getItems().clear();
+
+            // Refrescar la tabla de pedidos
+            List<Pedidos> pedidosDelUsuario = db.getPedidosDelUsuario(ConsultasDB.getUsuarioLogeado());
+            tbPedidos.setItems(FXCollections.observableArrayList(pedidosDelUsuario));
+
+            // Notificar al usuario sobre la compra exitosa
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Compra exitosa");
+            alert.setHeaderText("Compra realizada con éxito");
+            alert.setContentText("Tu pedido ha sido registrado correctamente.");
+            alert.showAndWait();
+        } else {
+            // Error al insertar el pedido en la base de datos
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error en la compra");
+            alert.setHeaderText("Error al registrar el pedido");
+            alert.setContentText("Hubo un problema al registrar tu pedido. Inténtalo de nuevo.");
+            alert.showAndWait();
+        }
+    }
+
+    public String generateUniqueCode() {
+        long timestamp = System.currentTimeMillis();
+        int randomValue = (int) (Math.random() * 1000);
+        String uniqueCode = "PEDIDO_" + timestamp + "_" + randomValue;
+        return uniqueCode;
+    }
+
+    @FXML
+    protected void onCancelarClick(ActionEvent event) {
+        // Limpiar el carrito
+        tbCarrito.getItems().clear();
+    }
+
+    public void cerrarVentana() {
+        Stage stage = (Stage) lbLogo.getScene().getWindow();
+        stage.close();
+    }
+
+    @FXML
+    protected void onLogoutClick(ActionEvent event) {
+        // Limpia los datos y cierra la ventana principal
+        cerrarVentana();
+
+        // Volver a la pantalla de inicio de sesión
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage loginStage = new Stage();
+            loginStage.setTitle("Inicio de Sesión");
+            loginStage.setScene(scene);
+            loginStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    @FXML
+    protected void onCloseClick(ActionEvent event) {
+        // Cerrar la aplicación
+        Stage stage = (Stage) btnCancelar.getScene().getWindow();
+        stage.close();
     }
 }
 
