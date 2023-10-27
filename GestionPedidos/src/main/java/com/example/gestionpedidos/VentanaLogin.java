@@ -1,15 +1,13 @@
 package com.example.gestionpedidos;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import lombok.Getter;
 
@@ -19,17 +17,15 @@ import java.util.ResourceBundle;
 
 public class VentanaLogin implements Initializable {
     @FXML
-    private Label welcomeText;
-    @FXML
     private TextField tfUser;
-    @FXML
-    private TextField tfPass;
     @FXML
     private Button btnSession;
     @FXML
     private Button bntCancel;
 
     private VentanaPrincipal ventanaPrincipal;
+    @FXML
+    private PasswordField tfPass;
 
     public void setVentanaPrincipal(VentanaPrincipal ventanaPrincipal) {
         this.ventanaPrincipal = ventanaPrincipal;
@@ -73,6 +69,8 @@ public class VentanaLogin implements Initializable {
         // Acción para el botón "Cancelar" (puedes agregar lo que sea necesario)
         tfUser.clear(); // Limpia los campos de usuario y contraseña
         tfPass.clear();
+        // Cierra la aplicación
+        Platform.exit();
     }
 
     @Override

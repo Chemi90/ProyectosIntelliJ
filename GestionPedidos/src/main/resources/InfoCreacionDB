@@ -26,7 +26,7 @@ CREATE TABLE Pedidos (
 
 CREATE TABLE ItemsPedidos (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    pedido INT NOT NULL,
+    pedido int NOT NULL,
     cantidad INT NOT NULL,
     producto INT NOT NULL,
     FOREIGN KEY (pedido) REFERENCES Pedidos(id),
@@ -38,3 +38,21 @@ INSERT INTO Usuarios (nombre, contraseña, email) VALUES
 ('user2', 'pass2', 'user2@example.com'),
 ('user3', 'pass3', 'user3@example.com'),
 ('user4', 'pass4', 'user4@example.com');
+
+INSERT INTO Productos (nombre, precio, cantidad_disponible) VALUES
+    ('Bebida gaseosa', 1.50, 100),
+    ('Snacks de papas', 1.00, 75),
+    ('Barra de chocolate', 2.00, 50),
+    ('Agua embotellada', 1.25, 120),
+    ('Café instantáneo', 2.50, 40),
+    ('Refresco de cola', 1.75, 90),
+    ('Galletas saladas', 1.20, 60),
+    ('Barra de cereales', 1.50, 70),
+    ('Botella de jugo', 2.25, 80),
+    ('Café en lata', 2.75, 55);
+
+	delete from ItemsPedidos where id = 5;
+    DELETE FROM Pedidos WHERE id = 28;
+    select * from pedidos;
+    select * from ItemsPedidos;
+    select * from productos;

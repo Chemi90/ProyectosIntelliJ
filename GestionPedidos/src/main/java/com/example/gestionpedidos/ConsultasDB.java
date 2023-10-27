@@ -52,6 +52,40 @@ public class ConsultasDB {
         }
     }
 
+    public boolean insertarElementosCarrito(int pedidoID, List<Carrito> itemsCarrito) {
+        if (connection == null || itemsCarrito == null || itemsCarrito.isEmpty()) {
+            return false;
+        }
+
+        try {
+            // Insertar elementos del carrito en la tabla "ItemsPedidos"
+            String sqlItems = "INSERT INTO ItemsPedidos (pedido, cantidad, producto) VALUES (?, ?, ?)";
+            PreparedStatement preparedStatementItems = connection.prepareStatement(sqlItems);
+
+            for (Carrito item : itemsCarrito) {
+                preparedStatementItems.setInt(1, pedidoID);
+                preparedStatementItems.setInt(2, item.getCantidad());
+                int productoID = getProductID(item.getNombre()); // Obtener el ID del producto por nombre
+                preparedStatementItems.setInt(3, productoID);
+                preparedStatementItems.addBatch();
+            }
+
+            int[] rowsAffectedItems = preparedStatementItems.executeBatch();
+
+            for (int rows : rowsAffectedItems) {
+                if (rows == PreparedStatement.EXECUTE_FAILED) {
+                    throw new SQLException("Error al insertar elementos del carrito.");
+                }
+            }
+
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+
     public boolean insertarPedido(String codigoPedido, Date fechaPedido, Integer usuario, double totalCompra, List<Carrito> itemsCarrito) {
         if (connection == null || itemsCarrito == null || itemsCarrito.isEmpty()) {
             return false;
@@ -61,31 +95,55 @@ public class ConsultasDB {
             // Establecer autocommit en falso
             connection.setAutoCommit(false);
 
-            // Insertar el pedido en la tabla "Pedidos"
+            // Insertar el pedido en la tabla "Pedidos" y obtener el ID generado automáticamente
             String sqlPedido = "INSERT INTO Pedidos (código, fecha, usuario, total) VALUES (?, ?, ?, ?)";
-            PreparedStatement preparedStatement = connection.prepareStatement(sqlPedido);
-            preparedStatement.setString(1, codigoPedido);
-            preparedStatement.setDate(2, fechaPedido);
-            preparedStatement.setInt(3, usuario);
-            preparedStatement.setDouble(4, totalCompra);
+            PreparedStatement preparedStatementPedido = connection.prepareStatement(sqlPedido, Statement.RETURN_GENERATED_KEYS);
+            preparedStatementPedido.setString(1, codigoPedido);
+            preparedStatementPedido.setDate(2, fechaPedido);
+            preparedStatementPedido.setInt(3, usuario);
+            preparedStatementPedido.setDouble(4, totalCompra);
 
-            int rowsAffected = preparedStatement.executeUpdate();
+            int rowsAffectedPedido = preparedStatementPedido.executeUpdate();
 
-            if (rowsAffected > 0) {
-                // Éxito: confirmar la transacción
-                connection.commit();
+            if (rowsAffectedPedido > 0) {
+                // Obtener el ID del pedido generado automáticamente
+                ResultSet generatedKeys = preparedStatementPedido.getGeneratedKeys();
+                if (generatedKeys.next()) {
+                    int pedidoID = generatedKeys.getInt(1);
 
-                // Puedes agregar aquí el código para limpiar el carrito
-                itemsCarrito.clear();
-                return true;
+                    // Insertar elementos del carrito en la tabla "ItemsPedidos"
+                    String sqlItems = "INSERT INTO ItemsPedidos (pedido, cantidad, producto) VALUES (?, ?, ?)";
+                    PreparedStatement preparedStatementItems = connection.prepareStatement(sqlItems);
+
+                    for (Carrito item : itemsCarrito) {
+                        preparedStatementItems.setInt(1, pedidoID);
+                        preparedStatementItems.setInt(2, item.getCantidad());
+                        int productoID = getProductID(item.getNombre()); // Obtener el ID del producto por nombre
+                        preparedStatementItems.setInt(3, productoID);
+                        preparedStatementItems.addBatch();
+                    }
+
+                    int[] rowsAffectedItems = preparedStatementItems.executeBatch();
+
+                    for (int rows : rowsAffectedItems) {
+                        if (rows == PreparedStatement.EXECUTE_FAILED) {
+                            throw new SQLException("Error al insertar elementos del carrito.");
+                        }
+                    }
+
+                    // Confirmar la transacción
+                    connection.commit();
+
+                    // Limpiar el carrito
+                    itemsCarrito.clear();
+                    return true;
+                }
             } else {
                 // Error al insertar el pedido
                 connection.rollback();
-                return false;
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            return false;
         } finally {
             try {
                 // Restablecer autocommit a verdadero
@@ -94,8 +152,8 @@ public class ConsultasDB {
                 e.printStackTrace();
             }
         }
+        return false;
     }
-
 
 
     public List<String> getProductNames() {
@@ -117,6 +175,53 @@ public class ConsultasDB {
         }
 
         return productNames;
+    }
+
+    public int getProductID(String productName) {
+        int productID = -1; // Valor predeterminado en caso de error o no encontrar el producto
+
+        try {
+            // Prepara la consulta SQL con una cláusula WHERE para buscar por nombre
+            String query = "SELECT id FROM Productos WHERE nombre = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, productName); // Asigna el nombre del producto
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                productID = resultSet.getInt("id");
+            }
+
+            resultSet.close();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return productID;
+    }
+
+    public int getPedidoID(String codigoPedido) {
+        int pedidoID = -1; // Valor predeterminado en caso de error o no encontrar el pedido
+
+        try {
+            String sql = "SELECT id FROM Pedidos WHERE código = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, codigoPedido);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                pedidoID = resultSet.getInt("id");
+            }
+
+            resultSet.close();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return pedidoID;
     }
 
     public Double getProductPrice(String productName) {
