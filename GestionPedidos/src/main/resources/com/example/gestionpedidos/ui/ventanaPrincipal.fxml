@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestionpedidos.VentanaPrincipal">
+<BorderPane xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestionpedidos.ui.VentanaPrincipal">
    <center>
       <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
          <top>
@@ -24,7 +24,7 @@
             </VBox>
          </top>
          <center>
-            <TableView fx:id="tbPedidos" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="tbPedidos" onMouseClicked="#onViewItemsClick" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
               <columns>
                 <TableColumn fx:id="cCodigo" maxWidth="750.0" minWidth="30.0" prefWidth="75.0" text="Codigo" />
                   <TableColumn fx:id="cFecha" maxWidth="750.0" minWidth="30.0" prefWidth="75.0" text="Fecha" />

@@ -1,4 +1,4 @@
-package com.example.gestionpedidos;
+package com.example.gestionpedidos.persistence;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;

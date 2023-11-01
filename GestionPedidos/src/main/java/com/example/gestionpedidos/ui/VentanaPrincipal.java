@@ -1,5 +1,9 @@
-package com.example.gestionpedidos;
+package com.example.gestionpedidos.ui;
 
+import com.example.gestionpedidos.model.ItemPedido;
+import com.example.gestionpedidos.persistence.ConsultasDB;
+import com.example.gestionpedidos.model.Carrito;
+import com.example.gestionpedidos.model.Pedidos;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,7 +18,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -55,6 +58,8 @@ public class VentanaPrincipal implements Initializable {
     private TableColumn cPrecioTotal;
     @FXML
     private MenuItem mbClose;
+    private static VentanaPrincipal instancia;
+    private String pedidoSeleccionadoCodigo;
 
 
     @Override
@@ -77,8 +82,17 @@ public class VentanaPrincipal implements Initializable {
         cFecha.setCellValueFactory(new PropertyValueFactory<>("fecha"));
         cTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
         tbPedidos.setItems(FXCollections.observableArrayList(pedidosDelUsuario));
+
+        instancia = this;
     }
 
+    public static VentanaPrincipal getInstancia() {
+        return instancia;
+    }
+
+    public Parent getVentana() {
+        return (Parent) lbLogo.getScene().getRoot();
+    }
     private void cantidad(ConsultasDB db) {
         cbItem.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
@@ -105,6 +119,33 @@ public class VentanaPrincipal implements Initializable {
             }
         });
     }
+
+    @FXML
+    protected void onViewItemsClick(ActionEvent event) throws IOException {
+        if (pedidoSeleccionadoCodigo != null) {
+            VentanaProductos ventanaProductos = new VentanaProductos();
+            List<ItemPedido> elementosPedido = ConsultasDB.getElementosPedido(pedidoSeleccionadoCodigo);
+
+            // Mostrar la ventana de productos y pasar los elementos del pedido
+            ventanaProductos.mostrarElementosDelPedido(pedidoSeleccionadoCodigo);
+
+            // Crear un nuevo escenario y mostrar la ventana de productos
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ventanaProductos.fxml"));
+            Stage ventanaProductosStage = new Stage();
+            Scene scene = new Scene(loader.load());
+            ventanaProductosStage.setScene(scene);
+            ventanaProductosStage.setTitle("Detalles del Pedido");
+            ventanaProductosStage.show();
+        } else {
+            // Muestra un mensaje de error en caso de no haber seleccionado un pedido
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error carga");
+            alert.setHeaderText("Problemas carga tabla");
+            alert.setContentText("Por favor, verifica todos los datos.");
+            alert.showAndWait();
+        }
+    }
+
 
     @FXML
     protected void onAñadirClick(ActionEvent event) {

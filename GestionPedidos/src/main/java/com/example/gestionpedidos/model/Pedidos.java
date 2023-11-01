@@ -1,4 +1,4 @@
-package com.example.gestionpedidos;
+package com.example.gestionpedidos.model;
 
 import lombok.Data;
 

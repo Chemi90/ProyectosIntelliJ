@@ -1,4 +1,8 @@
-package com.example.gestionpedidos;
+package com.example.gestionpedidos.persistence;
+
+import com.example.gestionpedidos.model.Carrito;
+import com.example.gestionpedidos.model.ItemPedido;
+import com.example.gestionpedidos.model.Pedidos;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -244,6 +248,39 @@ public class ConsultasDB {
         }
 
         return price;
+    }
+
+    public static List<ItemPedido> getElementosPedido(String codigoPedido) {
+        List<ItemPedido> elementosPedido = new ArrayList<>();
+
+        try {
+            String sql = "SELECT p.id_items, p.pedido, p.cantidad, p.producto, pr.nombre AS nombre_producto " +
+                    "FROM ItemsPedidos p " +
+                    "INNER JOIN Productos pr ON p.producto = pr.id_productos " +
+                    "WHERE p.pedido = (SELECT id_pedidos FROM Pedidos WHERE código = ?)";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, codigoPedido);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                int idItems = resultSet.getInt("id_items");
+                int cantidad = resultSet.getInt("cantidad");
+                int idProducto = resultSet.getInt("producto");
+                String nombreProducto = resultSet.getString("nombre_producto");
+
+                ItemPedido elementoPedido = new ItemPedido(idItems, codigoPedido, cantidad, idProducto, nombreProducto);
+                elementosPedido.add(elementoPedido);
+            }
+
+            resultSet.close();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return elementosPedido;
     }
 
     public int getProductQuantity(String productName) {
