@@ -14,13 +14,14 @@
             <children>
                 <TableView fx:id="tbItemsPedidos">
                     <columns>
+                  <TableColumn fx:id="cId_item" prefWidth="75.0" text="Id" />
                         <TableColumn fx:id="cCodPedido" prefWidth="75.0" text="Cod_pedido" />
                         <TableColumn fx:id="cCantidad" prefWidth="75.0" text="Cantidad" />
                         <TableColumn fx:id="cidProducto" prefWidth="75.0" text="id_Producto" />
                     </columns>
-                    <columnResizePolicy>
-                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                    </columnResizePolicy>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
                 </TableView>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                     <children>

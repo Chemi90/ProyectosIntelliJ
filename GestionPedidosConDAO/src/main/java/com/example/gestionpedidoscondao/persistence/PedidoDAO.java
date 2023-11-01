@@ -1,5 +1,6 @@
 package com.example.gestionpedidoscondao.persistence;
 
+import com.example.gestionpedidoscondao.model.ItemPedido;
 import com.example.gestionpedidoscondao.model.Pedido;
 
 import java.util.List;

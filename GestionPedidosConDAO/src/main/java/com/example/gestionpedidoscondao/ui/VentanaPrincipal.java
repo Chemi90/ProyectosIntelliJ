@@ -3,19 +3,21 @@ package com.example.gestionpedidoscondao.ui;
 import com.example.gestionpedidoscondao.Session;
 import com.example.gestionpedidoscondao.model.Pedido;
 import com.example.gestionpedidoscondao.model.Producto;
-import com.example.gestionpedidoscondao.persistence.PedidoDAO;
-import com.example.gestionpedidoscondao.persistence.PedidoDAOImp;
-import com.example.gestionpedidoscondao.persistence.ProductoDAO;
-import com.example.gestionpedidoscondao.persistence.ProductoDAOImp;
+import com.example.gestionpedidoscondao.persistence.*;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
@@ -28,8 +30,6 @@ public class VentanaPrincipal extends Application implements Initializable {
     private Label lbLogo;
     @javafx.fxml.FXML
     private TableView tbPedidos;
-    @javafx.fxml.FXML
-    private TableColumn cId;
     @javafx.fxml.FXML
     private TableColumn cCodigo;
     @javafx.fxml.FXML
@@ -75,8 +75,27 @@ public class VentanaPrincipal extends Application implements Initializable {
     }
 
     @javafx.fxml.FXML
-    public void onViewItemsClick(Event event) {
+    public void onViewItemsClick(Event event) throws IOException {
+        Pedido pedidoSeleccionado = (Pedido) tbPedidos.getSelectionModel().getSelectedItem();
+        if (pedidoSeleccionado != null) {
+            int idPedido = pedidoSeleccionado.getId_pedidos();
+            Session.setPedido(idPedido);
+            mostrarVentanaItemPedido(pedidoSeleccionado);
+        }
     }
+
+
+    @Deprecated
+    private void mostrarVentanaItemPedido(Pedido pedido) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ventanaItemPedido.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setTitle("Detalles del pedido");
+        stage.show();
+    }
+
+
 
     @javafx.fxml.FXML
     public void onComprarClick(ActionEvent actionEvent) {
@@ -107,6 +126,7 @@ public class VentanaPrincipal extends Application implements Initializable {
 
     private void loadPedidosUsuario() {
         List<Pedido> pedidos = pedidoDAO.findByUsuarioId(Session.getUsuarioId());
+
         cCodigo.setCellValueFactory(new PropertyValueFactory<Pedido, String>("código"));
         cFecha.setCellValueFactory(new PropertyValueFactory<Pedido, Date>("fecha"));
         cTotal.setCellValueFactory(new PropertyValueFactory<Pedido, Double>("total"));

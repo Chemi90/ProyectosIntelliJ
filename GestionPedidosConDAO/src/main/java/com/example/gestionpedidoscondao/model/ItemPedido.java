@@ -44,4 +44,7 @@ public class ItemPedido {
         this.cantidad = cantidad;
         this.productoId = productoId;
     }
+
+    public ItemPedido() {
+    }
 }

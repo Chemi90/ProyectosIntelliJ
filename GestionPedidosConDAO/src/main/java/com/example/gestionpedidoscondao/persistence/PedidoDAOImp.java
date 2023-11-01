@@ -1,6 +1,7 @@
 package com.example.gestionpedidoscondao.persistence;
 
 import com.example.gestionpedidoscondao.Session;
+import com.example.gestionpedidoscondao.model.ItemPedido;
 import com.example.gestionpedidoscondao.model.Pedido;
 
 import java.sql.*;
@@ -18,7 +19,9 @@ public class PedidoDAOImp implements PedidoDAO{
             stmt.setInt(1, Session.getUsuarioId());
             ResultSet rs = stmt.executeQuery();
 
+
             while (rs.next()) {
+                int id = rs.getInt("id");
                 String codigo = rs.getString("código");
                 Date fecha = rs.getDate("fecha");
                 Double total = rs.getDouble("total");
@@ -27,6 +30,7 @@ public class PedidoDAOImp implements PedidoDAO{
                 pedido.setCódigo(codigo);
                 pedido.setFecha(fecha);
                 pedido.setTotal(total);
+
 
                 pedidos.add(pedido);
             }

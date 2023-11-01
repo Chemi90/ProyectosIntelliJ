@@ -7,6 +7,8 @@ public class Session {
     private static String usuarioLogeado;
     @Getter
     private static int usuarioId;
+    @Getter
+    private static int pedido;
 
     public static void setUsuarioLogeado(String usuario) {
         usuarioLogeado = usuario;
@@ -14,6 +16,10 @@ public class Session {
 
     public static void setUsuarioId(int id) {
         usuarioId = id;
+    }
+
+    public static void setPedido(int pedido) {
+        Session.pedido = pedido;
     }
 }
 
