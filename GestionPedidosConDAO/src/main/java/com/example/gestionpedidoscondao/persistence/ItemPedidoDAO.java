@@ -5,5 +5,5 @@ import com.example.gestionpedidoscondao.model.ItemPedido;
 import java.util.List;
 
 public interface ItemPedidoDAO {
-    List<ItemPedido> findItemsByPedidoId(int pedidoId);
+    List<ItemPedido> findItemsByPedidoCodigo(String pedidoId);
 }

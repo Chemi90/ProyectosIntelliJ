@@ -17,7 +17,7 @@ public class UsuarioDAOImp implements UsuarioDAO {
 
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-                usuarios.add(new Usuario(rs.getInt("id"),
+                usuarios.add(new Usuario(rs.getInt("id_usuarios"),
                         rs.getString("nombre"),
                         rs.getString("contraseña"),
                         rs.getString("email")));

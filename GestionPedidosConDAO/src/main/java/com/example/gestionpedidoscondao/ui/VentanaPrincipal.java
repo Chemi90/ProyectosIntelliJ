@@ -78,9 +78,20 @@ public class VentanaPrincipal extends Application implements Initializable {
     public void onViewItemsClick(Event event) throws IOException {
         Pedido pedidoSeleccionado = (Pedido) tbPedidos.getSelectionModel().getSelectedItem();
         if (pedidoSeleccionado != null) {
-            int idPedido = pedidoSeleccionado.getId_pedidos();
-            Session.setPedido(idPedido);
+            // Cierra la ventana actual
+            Stage stageActual = (Stage) lbNombreUsuario.getScene().getWindow();
+            stageActual.close();
+
+            String CodPedido = pedidoSeleccionado.getCódigo();
+            Session.setPedido(CodPedido);
             mostrarVentanaItemPedido(pedidoSeleccionado);
+        } else {
+            // Mostrar mensaje de error
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error de Pedido");
+            alert.setHeaderText(null);
+            alert.setContentText("No has seleccionado ningún pedido.");
+            alert.showAndWait();
         }
     }
 
@@ -108,13 +119,33 @@ public class VentanaPrincipal extends Application implements Initializable {
     @javafx.fxml.FXML
     public void onAñadirClick(ActionEvent actionEvent) {
     }
-
+    public void cerrarVentana() {
+        Stage stage = (Stage) lbLogo.getScene().getWindow();
+        stage.close();
+    }
     @javafx.fxml.FXML
     public void onLogoutClick(ActionEvent actionEvent) {
+        // Limpia los datos y cierra la ventana principal
+        cerrarVentana();
+        // Volver a la pantalla de inicio de sesión
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ventanaLogin.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage loginStage = new Stage();
+            loginStage.setTitle("Inicio de Sesión");
+            loginStage.setScene(scene);
+            loginStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @javafx.fxml.FXML
     public void onCloseClick(ActionEvent actionEvent) {
+        // Cerrar la aplicación
+        Stage stage = (Stage) btnCancelar.getScene().getWindow();
+        stage.close();
     }
 
     @Override

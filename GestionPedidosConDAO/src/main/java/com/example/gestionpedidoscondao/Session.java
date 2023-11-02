@@ -8,7 +8,7 @@ public class Session {
     @Getter
     private static int usuarioId;
     @Getter
-    private static int pedido;
+    private static String pedido;
 
     public static void setUsuarioLogeado(String usuario) {
         usuarioLogeado = usuario;
@@ -18,7 +18,7 @@ public class Session {
         usuarioId = id;
     }
 
-    public static void setPedido(int pedido) {
+    public static void setPedido(String pedido) {
         Session.pedido = pedido;
     }
 }

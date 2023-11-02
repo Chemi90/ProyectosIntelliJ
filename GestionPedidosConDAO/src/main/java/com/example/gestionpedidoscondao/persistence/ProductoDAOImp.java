@@ -20,7 +20,7 @@ public class ProductoDAOImp implements ProductoDAO{
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 Producto producto = new Producto(
-                        rs.getInt("id"),
+                        rs.getInt("id_productos"),
                         rs.getString("nombre"),
                         rs.getDouble("precio"),
                         rs.getInt("cantidad_disponible")

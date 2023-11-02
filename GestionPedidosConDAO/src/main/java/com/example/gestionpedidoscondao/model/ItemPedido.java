@@ -2,7 +2,7 @@ package com.example.gestionpedidoscondao.model;
 
 public class ItemPedido {
     private int id;
-    private int pedidoId;
+    private String pedidoId;
     private int cantidad;
     private int productoId;
 
@@ -14,11 +14,11 @@ public class ItemPedido {
         this.id = id;
     }
 
-    public int getPedidoId() {
+    public String getPedidoId() {
         return pedidoId;
     }
 
-    public void setPedidoId(int pedidoId) {
+    public void setPedidoId(String pedidoId) {
         this.pedidoId = pedidoId;
     }
 
@@ -38,7 +38,7 @@ public class ItemPedido {
         this.productoId = productoId;
     }
 
-    public ItemPedido(int id, int pedidoId, int cantidad, int productoId) {
+    public ItemPedido(int id, String pedidoId, int cantidad, int productoId) {
         this.id = id;
         this.pedidoId = pedidoId;
         this.cantidad = cantidad;

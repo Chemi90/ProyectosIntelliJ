@@ -12,7 +12,7 @@ public class PedidoDAOImp implements PedidoDAO{
     @Override
     public List<Pedido> findByUsuarioId(int usuarioId) {
         List<Pedido> pedidos = new ArrayList<>();
-        String query = "SELECT id, código, fecha, total FROM Pedidos WHERE usuario = ?";
+        String query = "SELECT código, fecha, total FROM Pedidos WHERE usuario = ?";
         try (Connection connection = ConnectionDB.getConnection();
              PreparedStatement stmt = connection.prepareStatement(query)) {
 
@@ -21,7 +21,6 @@ public class PedidoDAOImp implements PedidoDAO{
 
 
             while (rs.next()) {
-                int id = rs.getInt("id");
                 String codigo = rs.getString("código");
                 Date fecha = rs.getDate("fecha");
                 Double total = rs.getDouble("total");
