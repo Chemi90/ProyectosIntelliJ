@@ -7,15 +7,28 @@ import org.hibernate.query.Query;
 
 import java.util.ArrayList;
 
-public class UserDao implements DAO<User> {
+public class UserDAO implements DAO<User> {
     @Override
     public ArrayList<User> getAll() {
-        return null;
+        var salida = new ArrayList<User>(0);
+
+        try(Session s = HibernateUtil.getSessionFactory().openSession()){
+            Query<User> q = s.createQuery("from User",User.class);
+            salida = (ArrayList<User>) q.getResultList();
+        }
+
+        return salida;
     }
 
     @Override
     public User get(Long id) {
-        return null;
+        var salida = new User();
+
+        try(Session s = HibernateUtil.getSessionFactory().openSession()){
+            salida = s.get(User.class,id);
+        }
+
+        return salida;
     }
 
     @Override
@@ -28,6 +41,7 @@ public class UserDao implements DAO<User> {
 
     }
 
+
     @Override
     public void delete(User data) {
 
@@ -35,17 +49,25 @@ public class UserDao implements DAO<User> {
 
     public User validateUser(String username, String password){
         User result = null;
-
-        try(Session session = HibernateUtil.getSessionFactory().openSession()){
-            Query<User> q = session.createQuery("FROM User where username =:u and password=:p", User.class);
-            q.setParameter("u", username);
-            q.setParameter("p", password);
+        try( Session session = HibernateUtil.getSessionFactory().openSession()){
+            Query<User> q = session.createQuery("from User where username=:u and password=:p",User.class);
+            q.setParameter("u",username);
+            q.setParameter("p",password);
 
             try {
                 result = q.getSingleResult();
-            }catch(Exception e){
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
             }
-            return result;
         }
+        return result;
+
+        /*
+        HibernateUtil.getSessionFactory().inSession(
+                (session)->{
+
+                }
+        );
+        */
     }
 }

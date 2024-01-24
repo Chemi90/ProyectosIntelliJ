@@ -1,5 +1,6 @@
 package com.example.gestionpedidoscondao.ui;
 
+import com.example.gestionpedidoscondao.App;
 import com.example.gestionpedidoscondao.Session;
 import com.example.gestionpedidoscondao.model.Usuario;
 import com.example.gestionpedidoscondao.persistence.UsuarioDAO;
@@ -16,6 +17,15 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * Clase de controlador para la ventana de login de la aplicación.
+ * Proporciona los métodos de manejo para la interfaz de usuario de login,
+ * permitiendo a los usuarios iniciar sesión o cancelar la operación.
+ *
+ * @author José Miguel Ruiz Guevara
+ * @version 1.0
+ * @since 1.0
+ */
 public class VentanaLogin {
 
     @FXML
@@ -28,6 +38,14 @@ public class VentanaLogin {
     private Button bntCancel;
     private final UsuarioDAO usuarioDAO = new UsuarioDAOImp();
 
+    /**
+     * Maneja el evento de clic en el botón de inicio de sesión.
+     * Valida las credenciales del usuario y, si son correctas,
+     * cambia a la ventana principal de la aplicación.
+     * Muestra una alerta si las credenciales son incorrectas.
+     *
+     * @throws Exception Si ocurre un error al cambiar de escena.
+     */
     @FXML
     private void onLoginButtonClick() throws Exception {
         String nombre = tfUser.getText();
@@ -47,18 +65,7 @@ public class VentanaLogin {
             Session.setUsuarioLogeado(user.getNombre());
             Session.setUsuarioId(user.getId());
 
-            // Cierra la ventana actual
-            Stage stageActual = (Stage) tfUser.getScene().getWindow();
-            stageActual.close();
-
-            // Abre VentanaPrincipal
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ventanaPrincipal.fxml"));
-            Parent root = loader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Ventana Principal");
-            stage.show();
-
+            App.changeScene("ventanaPrincipal.fxml", "Gestor de Pedidos");
         } else {
             // Mostrar mensaje de error
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -69,6 +76,12 @@ public class VentanaLogin {
         }
     }
 
+    /**
+     * Maneja el evento de clic en el botón de cancelar.
+     * Limpia los campos de texto y cierra la aplicación.
+     *
+     * @param actionEvent El evento de acción que desencadenó este método.
+     */
     @FXML
     public void onCancelButtonClick(ActionEvent actionEvent) {
         // Acción para el botón "Cancelar" (puedes agregar lo que sea necesario)

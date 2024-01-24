@@ -1,5 +1,6 @@
 package com.example.gestionpedidoscondao.ui;
 
+import com.example.gestionpedidoscondao.App;
 import com.example.gestionpedidoscondao.Session;
 import com.example.gestionpedidoscondao.model.Pedido;
 import com.example.gestionpedidoscondao.model.Producto;
@@ -24,10 +25,15 @@ import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
+/**
+ * Clase controladora de la interfaz de usuario principal de la aplicación.
+ * Gestiona la interacción con el usuario y realiza la navegación entre diferentes vistas.
+ *
+ * @author José Miguel Ruiz Guevara
+ * @version 1.0
+ */
 public class VentanaPrincipal extends Application implements Initializable {
 
-    @javafx.fxml.FXML
-    private Label lbLogo;
     @javafx.fxml.FXML
     private TableView tbPedidos;
     @javafx.fxml.FXML
@@ -66,25 +72,40 @@ public class VentanaPrincipal extends Application implements Initializable {
     private PedidoDAO pedidoDAO = new PedidoDAOImp();
 
 
+    /**
+     * Punto de entrada principal para la aplicación de JavaFX.
+     *
+     * @param args Argumentos de la línea de comandos.
+     */
     public static void main(String[] args) {
         launch(args);
     }
 
+    /**
+     * Inicializa la ventana principal de la aplicación con el escenario proporcionado.
+     *
+     * @param primaryStage El escenario principal para esta aplicación, sobre el cual
+     *                     la aplicación se desarrolla.
+     */
     @Override
     public void start(Stage primaryStage) {
     }
 
+    /**
+     * Se llama a este método para notificar que se ha hecho clic en el botón "Ver Items".
+     * Realiza la acción de navegar a la vista de items de un pedido seleccionado.
+     *
+     * @param event El evento de clic que disparó el método.
+     * @throws IOException Si ocurre un error durante la carga de la vista.
+     */
     @javafx.fxml.FXML
     public void onViewItemsClick(Event event) throws IOException {
         Pedido pedidoSeleccionado = (Pedido) tbPedidos.getSelectionModel().getSelectedItem();
         if (pedidoSeleccionado != null) {
-            // Cierra la ventana actual
-            Stage stageActual = (Stage) lbNombreUsuario.getScene().getWindow();
-            stageActual.close();
 
             String CodPedido = pedidoSeleccionado.getCódigo();
             Session.setPedido(CodPedido);
-            mostrarVentanaItemPedido(pedidoSeleccionado);
+            App.changeScene("ventanaItemPedido.fxml", "Items del Pedido " + CodPedido);
         } else {
             // Mostrar mensaje de error
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -94,19 +115,6 @@ public class VentanaPrincipal extends Application implements Initializable {
             alert.showAndWait();
         }
     }
-
-
-    @Deprecated
-    private void mostrarVentanaItemPedido(Pedido pedido) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ventanaItemPedido.fxml"));
-        Parent root = loader.load();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.setTitle("Detalles del pedido");
-        stage.show();
-    }
-
-
 
     @javafx.fxml.FXML
     public void onComprarClick(ActionEvent actionEvent) {
@@ -119,28 +127,22 @@ public class VentanaPrincipal extends Application implements Initializable {
     @javafx.fxml.FXML
     public void onAñadirClick(ActionEvent actionEvent) {
     }
-    public void cerrarVentana() {
-        Stage stage = (Stage) lbLogo.getScene().getWindow();
-        stage.close();
-    }
+
     @javafx.fxml.FXML
     public void onLogoutClick(ActionEvent actionEvent) {
-        // Limpia los datos y cierra la ventana principal
-        cerrarVentana();
-        // Volver a la pantalla de inicio de sesión
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ventanaLogin.fxml"));
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-            Stage loginStage = new Stage();
-            loginStage.setTitle("Inicio de Sesión");
-            loginStage.setScene(scene);
-            loginStage.show();
+            App.changeScene("ventanaLogin.fxml", "Login");
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 
+    /**
+     * Manejador del evento de clic para el elemento de menú 'Cerrar'.
+     * Cierra la ventana actual y, como resultado, la aplicación si esta es la única ventana abierta.
+     *
+     * @param actionEvent El evento de acción que desencadenó este método.
+     */
     @javafx.fxml.FXML
     public void onCloseClick(ActionEvent actionEvent) {
         // Cerrar la aplicación
@@ -148,6 +150,15 @@ public class VentanaPrincipal extends Application implements Initializable {
         stage.close();
     }
 
+    /**
+     * Este método se invoca automáticamente para inicializar el controlador después de que su
+     * elemento raíz ha sido completamente procesado.
+     *
+     * @param url            La ubicación utilizada para resolver rutas relativas para el objeto raíz,
+     *                       o {@code null} si la ubicación no es conocida.
+     * @param resourceBundle El recurso que se utilizó para localizar el objeto raíz, o {@code null}
+     *                       si el objeto raíz no fue localizado.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         lbNombreUsuario.setText(Session.getUsuarioLogeado());
@@ -155,6 +166,9 @@ public class VentanaPrincipal extends Application implements Initializable {
         loadPedidosUsuario();
     }
 
+    /**
+     * Carga los pedidos del usuario y actualiza la interfaz de usuario en consecuencia.
+     */
     private void loadPedidosUsuario() {
         List<Pedido> pedidos = pedidoDAO.findByUsuarioId(Session.getUsuarioId());
 
@@ -164,6 +178,12 @@ public class VentanaPrincipal extends Application implements Initializable {
         tbPedidos.setItems(FXCollections.observableArrayList(pedidos));
     }
 
+    /**
+     * Actualiza la etiqueta de precio basándose en el producto seleccionado.
+     * Si el producto es {@code null}, se establece el texto de la etiqueta a "$0.00".
+     *
+     * @param producto El producto cuyo precio se debe mostrar.
+     */
     private void loadPrecioProductosIntoLabel(Producto producto){
         if (producto != null) {
             lbPrecio.setText(String.format("$%.2f", producto.getPrecio()));
@@ -172,6 +192,11 @@ public class VentanaPrincipal extends Application implements Initializable {
         }
     }
 
+    /**
+     * Carga los nombres de todos los productos en el ComboBox para la selección del usuario.
+     * Además, establece un oyente para cuando se selecciona un nuevo producto,
+     * para actualizar la interfaz de usuario correspondientemente.
+     */
     private void loadNombresProductosIntoComboBox() {
         List<Producto> productos = productoDAO.findAll();
         List<String> nombreProductos = new ArrayList<>();
@@ -182,6 +207,12 @@ public class VentanaPrincipal extends Application implements Initializable {
         listenerProductoSeleccionado(productos);
     }
 
+    /**
+     * Añade un oyente al ComboBox de productos que actualiza la cantidad disponible y
+     * el precio en la interfaz de usuario cuando se selecciona un producto.
+     *
+     * @param productos Lista de productos para los que se establecerá el oyente.
+     */
     private void listenerProductoSeleccionado(List<Producto> productos) {
         cbItem.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             Producto selectedProducto = productos.stream()
@@ -195,6 +226,12 @@ public class VentanaPrincipal extends Application implements Initializable {
         });
     }
 
+    /**
+     * Actualiza el ComboBox de cantidad basándose en la cantidad disponible del producto seleccionado.
+     * Limpia el ComboBox actual y añade la cantidad de elementos según la disponibilidad del producto.
+     *
+     * @param producto El producto seleccionado cuya cantidad disponible determinará las opciones de cantidad.
+     */
     private void updateCantidadComboBox(Producto producto) {
         cbCantidad.getItems().clear();
         if (producto != null) {

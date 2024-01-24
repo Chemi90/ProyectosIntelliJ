@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0193ed2c-ee92-49de-ab2b-5903ccbeb5c2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../GestionPedidos HIBERNATE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Grabacion Gestor Pedidos solo visualizar.mkv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/allclasses-index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/allpackages-index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/App.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/Session.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/class-use/App.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/class-use/Session.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/model/Carrito.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/model/ItemPedido.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/model/Pedido.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/model/Producto.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/model/Usuario.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/model/class-use/Carrito.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/model/class-use/ItemPedido.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/model/class-use/Pedido.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/model/class-use/Producto.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/model/class-use/Usuario.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/model/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/model/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/model/package-use.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/package-use.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/persistence/ConnectionDB.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/persistence/ItemPedidoDAO.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/persistence/ItemPedidoDAOImp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/persistence/PedidoDAO.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/persistence/PedidoDAOImp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/persistence/ProductoDAO.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/persistence/ProductoDAOImp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/persistence/UsuarioDAO.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/persistence/UsuarioDAOImp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/persistence/class-use/ConnectionDB.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/persistence/class-use/ItemPedidoDAO.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/persistence/class-use/ItemPedidoDAOImp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/persistence/class-use/PedidoDAO.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/persistence/class-use/PedidoDAOImp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/persistence/class-use/ProductoDAO.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/persistence/class-use/ProductoDAOImp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/persistence/class-use/UsuarioDAO.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/persistence/class-use/UsuarioDAOImp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/persistence/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/persistence/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/persistence/package-use.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/ui/VentanaItemPedido.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/ui/VentanaLogin.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/ui/VentanaPrincipal.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/ui/class-use/VentanaItemPedido.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/ui/class-use/VentanaLogin.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/ui/class-use/VentanaPrincipal.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/ui/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/ui/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/com/example/gestionpedidoscondao/ui/package-use.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/com.example.gestionpedidoscondao/module-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/copy.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/element-list" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/help-doc.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/index-files/index-1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/index-files/index-10.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/index-files/index-11.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/index-files/index-12.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/index-files/index-13.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/index-files/index-2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/index-files/index-3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/index-files/index-4.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/index-files/index-5.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/index-files/index-6.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/index-files/index-7.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/index-files/index-8.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/index-files/index-9.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/legal/ADDITIONAL_LICENSE_INFO" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/legal/ASSEMBLY_EXCEPTION" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/legal/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/legal/jquery.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/legal/jqueryUI.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/member-search-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/module-search-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/overview-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/package-search-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/resources/glass.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/resources/x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/script-dir/jquery-3.6.1.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/script-dir/jquery-ui.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/script-dir/jquery-ui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/search-page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/search.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/search.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/stylesheet.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/tag-search-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/Javadoc/type-search-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/resources/glass.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/resources/x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestorJuegos/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestorJuegos/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestorJuegos/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestorJuegos/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestorJuegos/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestorJuegos/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestorJuegos/src/main/java/com/example/gestorjuegos/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestorJuegos/src/main/java/com/example/gestorjuegos/controllers/GameViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestorJuegos/src/main/java/com/example/gestorjuegos/controllers/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestorJuegos/src/main/java/module-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestorJuegos/src/main/resources/com/example/gestorjuegos/views/game-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestorJuegos/src/main/resources/com/example/gestorjuegos/views/login-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestorJuegos/src/main/resources/img/disquete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestorJuegos/src/main/resources/img/papelera-de-reciclaje.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GestorJuegos/src/main/resources/img/volver-flecha.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PSP_UD03_CPSocketsMODIFICADO COMO EL EJERCICIO MANDA/PSP_UD03_CPSockets.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GestionPedidos/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../GestionPedidos/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GestionPedidosConDAO/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GestionPedidosConDAO/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/java/com/example/gestionpedidoscondao/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/java/com/example/gestionpedidoscondao/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/java/com/example/gestionpedidoscondao/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/java/com/example/gestionpedidoscondao/Session.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/java/com/example/gestionpedidoscondao/model/Carrito.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/java/com/example/gestionpedidoscondao/model/Carrito.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/java/com/example/gestionpedidoscondao/model/ItemPedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/java/com/example/gestionpedidoscondao/model/ItemPedido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/java/com/example/gestionpedidoscondao/model/Pedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/java/com/example/gestionpedidoscondao/model/Pedido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/java/com/example/gestionpedidoscondao/model/Producto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/java/com/example/gestionpedidoscondao/model/Producto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/java/com/example/gestionpedidoscondao/model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/java/com/example/gestionpedidoscondao/model/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/java/com/example/gestionpedidoscondao/persistence/ConnectionDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/java/com/example/gestionpedidoscondao/persistence/ConnectionDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/java/com/example/gestionpedidoscondao/persistence/ItemPedidoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/java/com/example/gestionpedidoscondao/persistence/ItemPedidoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/java/com/example/gestionpedidoscondao/persistence/ItemPedidoDAOImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/java/com/example/gestionpedidoscondao/persistence/ItemPedidoDAOImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/java/com/example/gestionpedidoscondao/persistence/PedidoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/java/com/example/gestionpedidoscondao/persistence/PedidoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/java/com/example/gestionpedidoscondao/persistence/PedidoDAOImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/java/com/example/gestionpedidoscondao/persistence/PedidoDAOImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/java/com/example/gestionpedidoscondao/persistence/ProductoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/java/com/example/gestionpedidoscondao/persistence/ProductoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/java/com/example/gestionpedidoscondao/persistence/ProductoDAOImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/java/com/example/gestionpedidoscondao/persistence/ProductoDAOImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/java/com/example/gestionpedidoscondao/persistence/UsuarioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/java/com/example/gestionpedidoscondao/persistence/UsuarioDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/java/com/example/gestionpedidoscondao/persistence/UsuarioDAOImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/java/com/example/gestionpedidoscondao/persistence/UsuarioDAOImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/java/com/example/gestionpedidoscondao/ui/VentanaItemPedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/java/com/example/gestionpedidoscondao/ui/VentanaItemPedido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/java/com/example/gestionpedidoscondao/ui/VentanaLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/java/com/example/gestionpedidoscondao/ui/VentanaLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/java/com/example/gestionpedidoscondao/ui/VentanaPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/java/com/example/gestionpedidoscondao/ui/VentanaPrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/resources/com/example/gestionpedidoscondao/ui/ventanaItemPedido.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/resources/com/example/gestionpedidoscondao/ui/ventanaItemPedido.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/resources/com/example/gestionpedidoscondao/ui/ventanaLogin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/resources/com/example/gestionpedidoscondao/ui/ventanaLogin.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/resources/com/example/gestionpedidoscondao/ui/ventanaPrincipal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../GestionPedidosConDAO/src/main/resources/com/example/gestionpedidoscondao/ui/ventanaPrincipal.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GestorJuegos/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../GestorJuegos/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GestorJuegos/src/main/java/com/example/gestorjuegos/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GestorJuegos/src/main/java/com/example/gestorjuegos/Session.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GestorJuegos/src/main/java/com/example/gestorjuegos/controllers/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GestorJuegos/src/main/java/com/example/gestorjuegos/controllers/MainViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GestorJuegos/src/main/java/com/example/gestorjuegos/domain/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GestorJuegos/src/main/java/com/example/gestorjuegos/domain/DAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GestorJuegos/src/main/java/com/example/gestorjuegos/domain/HibernateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GestorJuegos/src/main/java/com/example/gestorjuegos/domain/HibernateUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GestorJuegos/src/main/java/com/example/gestorjuegos/domain/juego/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GestorJuegos/src/main/java/com/example/gestorjuegos/domain/juego/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GestorJuegos/src/main/java/com/example/gestorjuegos/domain/juego/GameDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GestorJuegos/src/main/java/com/example/gestorjuegos/domain/juego/GameDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GestorJuegos/src/main/java/com/example/gestorjuegos/domain/usuario/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GestorJuegos/src/main/java/com/example/gestorjuegos/domain/usuario/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GestorJuegos/src/main/java/com/example/gestorjuegos/domain/usuario/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GestorJuegos/src/main/java/com/example/gestorjuegos/domain/usuario/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GestorJuegos/src/main/resources/com/example/gestorjuegos/views/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../GestorJuegos/src/main/resources/com/example/gestorjuegos/views/main-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GestorJuegos/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../GestorJuegos/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2YQmEKHdMNYuTZcupqbNI2UK6Ty" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/dev/WorkSpace/Proyectos IntelliJ/GestorPedidosObjectDB",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\frome\IdeaProjects\helloJasper\HolaJasper" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0193ed2c-ee92-49de-ab2b-5903ccbeb5c2" name="Changes" comment="" />
+      <created>1700466067974</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1700466067974</updated>
+      <workItem from="1700466069169" duration="501000" />
+      <workItem from="1700476816871" duration="1297000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

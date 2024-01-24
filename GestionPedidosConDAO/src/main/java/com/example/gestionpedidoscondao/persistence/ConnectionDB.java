@@ -8,13 +8,34 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
+/**
+ * Clase de utilidad para obtener una instancia de conexión a la base de datos.
+ * <p>
+ * Esta clase provee un método para establecer una conexión con la base de datos
+ * utilizando las credenciales y la URL de conexión especificadas en un archivo de propiedades.
+ * </p>
+ *
+ * @author José Miguel Ruiz Guevara
+ * @version 1.0
+ * @since 1.0
+ */
 public class ConnectionDB {
     private static Connection connection = null;
 
+    /**
+     * Obtiene una instancia de {@link Connection} para operaciones en la base de datos.
+     * <p>
+     * Los parámetros de conexión son extraídos de un archivo de propiedades ubicado en
+     * el directorio de recursos. Este método asegura que la conexión con la
+     * base de datos se establezca utilizando estos parámetros y el driver JDBC.
+     * </p>
+     *
+     * @return un objeto {@link Connection} a la base de datos o {@code null} si la conexión no se puede establecer
+     */
     public static Connection getConnection() {
         try {
             Properties propiedades = new Properties();
-            InputStream archivoPropiedades = new FileInputStream("C:/dev/WorkSpace/Proyectos IntelliJ/GestionPedidosConDAO/src/main/resources/DB.properties");
+            InputStream archivoPropiedades = new FileInputStream("src/main/resources/DB.properties");
             propiedades.load(archivoPropiedades);
 
             String url = propiedades.getProperty("url");
@@ -27,5 +48,4 @@ public class ConnectionDB {
             return null;
         }
     }
-
 }

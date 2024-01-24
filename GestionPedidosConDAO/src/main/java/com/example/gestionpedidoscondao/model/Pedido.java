@@ -1,62 +1,34 @@
 package com.example.gestionpedidoscondao.model;
 
+import lombok.*;
+
 import java.util.Date;
 
+/**
+ * Clase que representa un pedido dentro del sistema de gestión.
+ * <p>
+ * Esta clase contiene toda la información relevante de un pedido realizado por un usuario.
+ * Incluye el identificador del pedido, el código único, la fecha en que se realizó,
+ * el usuario que hizo el pedido y el total del costo del pedido.
+ * </p>
+ * <p>
+ * Se emplean anotaciones de Lombok para reducir la necesidad de código boilerplate
+ * como getters y setters y constructores.
+ * </p>
+ *
+ * @author José Miguel Ruiz Guevara
+ * @version 1.0
+ * @since 1.0
+ */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class Pedido {
     private int id_pedidos;
     private String código;
     private Date fecha;
     private int usuario;
     private double total;
-
-    public int getId_pedidos() {
-        return id_pedidos;
-    }
-
-    public void setId_pedidos(int id_pedidos) {
-        this.id_pedidos = id_pedidos;
-    }
-
-    public String getCódigo() {
-        return código;
-    }
-
-    public void setCódigo(String código) {
-        this.código = código;
-    }
-
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
-
-    public int getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(int usuario) {
-        this.usuario = usuario;
-    }
-
-    public double getTotal() {
-        return total;
-    }
-
-    public void setTotal(double total) {
-        this.total = total;
-    }
-
-    public Pedido(int id, String codigo, Date fecha, int usuarioId, double total) {
-        this.id_pedidos = id;
-        this.código = codigo;
-        this.fecha = fecha;
-        this.usuario = usuarioId;
-        this.total = total;
-    }
-
-    public Pedido() {
-    }
 }

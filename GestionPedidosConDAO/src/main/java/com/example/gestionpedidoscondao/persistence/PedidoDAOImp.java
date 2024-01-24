@@ -8,7 +8,25 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Implementación de la interfaz PedidoDAO para interactuar con la base de datos
+ * y recuperar información sobre los pedidos.
+ *
+ * Esta implementación utiliza una base de datos SQL para realizar las operaciones CRUD.
+ *
+ * @author José Miguel Ruiz Guevara
+ * @version 1.0
+ * @since 1.0
+ */
 public class PedidoDAOImp implements PedidoDAO{
+
+    /**
+     * Recupera todos los pedidos asociados a un ID de usuario específico.
+     *
+     * @param usuarioId el ID del usuario para el cual se buscan los pedidos.
+     * @return una lista de objetos {@link Pedido}, cada uno representando un pedido
+     *         asociado al usuario proporcionado.
+     */
     @Override
     public List<Pedido> findByUsuarioId(int usuarioId) {
         List<Pedido> pedidos = new ArrayList<>();
